@@ -4,7 +4,7 @@
  ruby 2.0.0p645
 
 == Running the application
-type this from the root directory of the application:
+Type this from the root directory of the application:
 
  rails s
 
@@ -12,7 +12,7 @@ In the Postman application:
 
  POST http://localhost:3000/api/v1/built_with
 
-click on "raw" in the body tab and select "JSON(application/json)" from the pull down list on the far right
+Click on "raw" in the body tab and select "JSON(application/json)" from the pull down list on the far right.
 
 In the text area type:
 
@@ -21,7 +21,7 @@ In the text area type:
 Or something similar.  The site is the url of the address to examine.  The lookup parameter tests to see if that term appears in the returned html from the url.
 
 == How to run the test suite
-type this from the root directory:
+Type this from the root directory:
 
  rspec
 
