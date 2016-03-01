@@ -19,11 +19,12 @@ RSpec.describe ApiBuiltWithController, type: :controller do
       assert(json_resp['robots_file_exists'] == false)
     end
 
-    it "Shows there is lookup term in html response" do
+    it "Shows there is lookup term in html response and no bootstrap in page" do
       post :get_info, json
       json_resp = JSON.parse(response.body)
       assert(json_resp['lookup_term'] == "camera")
       assert(json_resp['has_lookup'] == true)
+      assert(json_resp['is_using_bootstrap'] == false)
     end
 
     it "Shows there is no lookup term in html response" do
@@ -49,5 +50,13 @@ RSpec.describe ApiBuiltWithController, type: :controller do
       assert(json_resp['robots_file_exists'] == true)
       assert(json_resp['is_fetch_allowed'] == true)
     end
+
+    it "There is bootstrap" do
+      FakeWeb.register_uri(:any, "http://www.google.com", :body => "<html><head><title>A</title><link rel=\"stylesheet\" href=\"bootstrap-3.3.4-dist/css/bootstrap.min.css\" type=\"text/css\" media=\"screen\"><head><body><p>camera</p></body></html>")
+      post :get_info, json
+      json_resp = JSON.parse(response.body)
+      assert(json_resp['is_using_bootstrap'] == true)
+    end
+
   end
 end
