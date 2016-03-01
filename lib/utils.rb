@@ -31,6 +31,6 @@ def get_site_info params
   else
     json['is_fetch_allowed'] = false
   end
-  json['is_using_bootstrap'] = doc.xpath('//link[@rel="stylesheet"]').to_s.include?('bootstrap.min.css') #Grab all stylesheet links, turn them into text and search for bootstrap
+  json['is_using_bootstrap'] = doc.xpath('//link[@rel="stylesheet"]').to_s.downcase.include?('bootstrap.min.css') #Grab all stylesheet links, turn them into text and search for bootstrap
   return json
 end
