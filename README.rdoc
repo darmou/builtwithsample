@@ -4,6 +4,11 @@
  ruby 2.0.0p645
 
 == Running the application
+
+To install the gems required for this application, type in the root directory of this application.  Ensure that the bundler gem is installed first (gem install bundler):
+
+ bundle install
+
 Type this from the root directory of the application:
 
  rails s
