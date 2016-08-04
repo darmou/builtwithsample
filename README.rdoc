@@ -9,7 +9,7 @@ To install the gems required for this application, type in the root directory of
 
  bundle install
 
-Once all the gems are instaled, type this from the root directory of the application:
+Once all the gems are installed, type this from the root directory of the application:
 
  rails s
 
